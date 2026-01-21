@@ -293,5 +293,27 @@ class RraMiddlewareController extends Controller
             ], 500);
         }
     }
+    public function selectStockItems(Request $request)
+    {
+        try {
+            $response = Http::timeout(60)
+                ->acceptJson()
+                ->post(
+                    $this->vsdcBaseUrl . '/stock/selectStockItems',
+                    $request->all()
+                );
+
+            return response()->json(
+                $response->json(),
+                $response->status()
+            );
+
+        } catch (\Throwable $e) {
+            return response()->json([
+                'message' => 'Select stock items failed',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
 
 }

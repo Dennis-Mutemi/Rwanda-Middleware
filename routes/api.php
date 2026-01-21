@@ -12,6 +12,7 @@ Route::prefix('rra')->group(function () {
     Route::get('/status/{docNo}', [RraMiddlewareController::class, 'status']);
     Route::post('/saveStockMaster', [RraMiddlewareController::class, 'saveStockMaster']);
     Route::get('/selectItems', [RraMiddlewareController::class, 'selectItems']);
+    Route::get('/stock/selectStockItems', [RraMiddlewareController::class, 'selectStockItems']);
 
     Route::get('/code/selectCodes', [RraMiddlewareController::class, 'selectCodes']);
     Route::get('/itemClass/selectItemsClass', [RraMiddlewareController::class, 'selectItemsClass']);
