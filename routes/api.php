@@ -13,6 +13,7 @@ Route::prefix('rra')->group(function () {
     Route::post('/saveStockMaster', [RraMiddlewareController::class, 'saveStockMaster']);
     Route::get('/selectItems', [RraMiddlewareController::class, 'selectItems']);
     Route::get('/stock/selectStockItems', [RraMiddlewareController::class, 'selectStockItems']);
+    Route::get('/imports/selectImportItems', [RraMiddlewareController::class, 'selectImportItems']);
 
     Route::get('/code/selectCodes', [RraMiddlewareController::class, 'selectCodes']);
     Route::get('/itemClass/selectItemsClass', [RraMiddlewareController::class, 'selectItemsClass']);

@@ -316,4 +316,27 @@ class RraMiddlewareController extends Controller
         }
     }
 
+    public function selectImportItems(Request $request)
+    {
+        try {
+            $response = Http::timeout(60)
+                ->acceptJson()
+                ->post(
+                    $this->vsdcBaseUrl . '/imports/selectImportItems',
+                    $request->all()
+                );
+
+            return response()->json(
+                $response->json(),
+                $response->status()
+            );
+
+        } catch (\Throwable $e) {
+            return response()->json([
+                'message' => 'Select import items failed',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
 }
